@@ -1,0 +1,22 @@
+.section1 {
+    height: 600px;
+    background-color: #0070f3;
+    scroll-snap-align: start;
+}
+
+.section2, .section3, .section4 {
+    min-height: 100vh;
+    scroll-snap-align: start;
+}
+
+.section2 {
+    background-color: orangered;
+}
+
+.section3 {
+    background-color: darkgreen;
+}
+
+.section4 {
+    background-color: purple;
+}
