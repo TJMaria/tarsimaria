@@ -10,7 +10,7 @@ const { container } = styles;
 const { section1, section2, section3, imgBorder } = sectionStyles;
 
 export default function Home() {
-    const [hover, setHover] = useState(false);
+    const [hover, setHover] = useState(true);
 
     function getImgStyle(): Properties {
         return {
@@ -29,17 +29,16 @@ export default function Home() {
             <Head>
                 <title>Tarsi Maria | TMiT </title>
                 <meta name="keywords" content="web development, programming, Javascript, Angular, React, Nextjs"/>
-                {/*<link rel="icon" href="/favicon.ico" />*/ }
             </Head>
 
             <div>
-                <section id="section1" className={ section1 }>
+                <section id="section1" className={ section1 }
+                         onMouseEnter={ () => setHover(false) }
+                         onMouseLeave={ () => setHover(true) }>
                     <h1 className={ styles.title }>
                         Full stack developer
                     </h1>
                     <Image
-                        onMouseEnter={ () => setHover(true) }
-                        onMouseLeave={ () => setHover(false) }
                         src={ pic }
                         alt="Picture of author/owner"
                         width={ 300 }
