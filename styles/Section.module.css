@@ -3,11 +3,18 @@
     position: relative;
     height: 600px;
     scroll-snap-align: start;
+
+    padding-top: 50px
 }
 
+
 .section1 > h1 {
-    width: 65%;
-    padding-top: 10%;
+    padding-top: 48px;
+}
+
+.section1 > h1,
+.section1 > h3 {
+    margin-left: 10% ;
 }
 
 .imgBorder{

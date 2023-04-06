@@ -34,3 +34,14 @@ a {
         background: var(--whiteish);
     }
 }
+
+h1 {
+    margin: 0;
+    line-height: 1.15;
+    font-size: 4rem;
+}
+h3 {
+    margin: 0;
+    line-height: 1.15;
+    font-size: 1.2rem;
+}

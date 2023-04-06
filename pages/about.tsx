@@ -1,7 +1,6 @@
 export default function About({ posts }: any) {
-    return <div>About {JSON.stringify(posts)}</div>
+    return <div style={ { position: 'absolute', top: '100px' }}>About :{JSON.stringify(posts)}</div>
 }
-
 // This function gets called at build time
 export async function getStaticProps() {
     const {NODE_ENV, DEV_HOST, PROD_HOST} = process.env;
