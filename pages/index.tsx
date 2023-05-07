@@ -1,28 +1,12 @@
-import { Properties } from 'csstype';
 import Head from 'next/head';
-import Image from 'next/image';
-import { useState } from 'react';
-import pic from '../public/TM.webp';
-import styles from '../styles/Layout.module.css';
-import sectionStyles from '../styles/Section.module.css';
+import styles from '../styles/Layout.module.scss';
+import sectionStyles from '../styles/Section.module.scss';
+import Intro from '../components/Intro';
 
 const { container } = styles;
-const { section1, section2, section3, imgBorder } = sectionStyles;
+const { section2} = sectionStyles;
 
 export default function Home() {
-    const [hover, setHover] = useState(true);
-
-    function getImgStyle(): Properties {
-        return {
-            position: 'absolute',
-            bottom: '20%',
-            left: '60%',
-            borderTopRightRadius: '5%',
-            borderBottomLeftRadius: '5%',
-            transform: hover ? 'translate(8px, -8px)' : '',
-            transition: 'transform 0.1s'
-        };
-    }
 
     return (
         <div className={ container }>
@@ -32,24 +16,7 @@ export default function Home() {
             </Head>
 
             <div>
-                <section id="section1" className={ section1 }
-                         onMouseEnter={ () => setHover(false) }
-                         onMouseLeave={ () => setHover(true) }>
-                    <h1>
-                        Full stack developer
-                    </h1>
-                    <h3>Angular | React | Vue | C++ | Java | NodeJs | DevOps | Test Automation</h3>
-                    <Image
-                        src={ pic }
-                        alt="Picture of author/owner"
-                        width={ 300 }
-                        height={ 300 }
-                        quality={ 100 }
-                        style={ getImgStyle() }
-                        priority
-                    />
-                    <div className={ imgBorder }></div>
-                </section>
+                <Intro></Intro>
                 <section id="section2" className={ section2 }>
                     <h1 className={ styles.title }>
                     </h1>

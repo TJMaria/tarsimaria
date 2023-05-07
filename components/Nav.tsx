@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import pic from '../public/TMiT transparent 2.png';
-import navStyles from '../styles/Nav.module.css';
+import navStyles from '../styles/Nav.module.scss';
 
 let navElement: HTMLElement | null;
 
@@ -22,7 +22,6 @@ export default function Nav() {
 
     return (
         <nav id={ 'nav' } className={ `${ navStyles.nav } ${ _hover ? navStyles.hover : '' }` }>
-
             <Link href="/">
                 <Image
                     src={ pic }

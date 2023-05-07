@@ -45,3 +45,8 @@ h3 {
     line-height: 1.15;
     font-size: 1.2rem;
 }
+
+section{
+    border-bottom: solid 1px var(--color1);
+    scroll-snap-align: start;
+}
