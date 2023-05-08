@@ -1,0 +1,15 @@
+.projectContainer{
+    display: flex;
+}
+.projectInfo{
+    margin: 50px;
+    border-bottom: 1px solid var(--color2);
+
+    width: 40%;
+}
+.stack{
+    p[data-animate]{
+        background-color: green;
+    }
+}
+

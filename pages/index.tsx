@@ -38,6 +38,7 @@ export default function Home() {
                                 <li>Analyzing and redesigning API's for more efficient data gathering</li>
                                 <li>Changing UX/UI to give the user better feedback as to not perceive the app as slow</li>
                                 <li>Reduced loading the complete dataset from 3 minutes to 10 seconds</li>
+                                <li>Removed latency during zooming and panning, by delaying and only rendering what is in view</li>
                             </ul>
                             <li>Introducing visual regression testing</li>
                             <li>Setting up workshop to improve frontend development knowledge and UI design</li>
@@ -48,7 +49,7 @@ export default function Home() {
                         title="NS - Nederlandse Spoorwegen (Dutch Railways)"
                         description="NS is the main provider for public transport on the dutch Railway system. One of the main responsibilities,
                         next to offering public transport, is the creating the planning and timetables for all the traffic routes in the country.
-                        <i>The main project consisted of creating a visual diagram depicting the planned train traffic over time. The diagram would be used during planning of timetables, to adjust and optimize planning and prevent conflicting routes</i>"
+                        <br><i>The main project consisted of creating a visual diagram depicting the planned train traffic over time. The diagram would be used during planning of timetables, to adjust and optimize planning and prevent conflicting routes</i>"
                         role="Lead Full stack developer"
                     >
                         <ul>
