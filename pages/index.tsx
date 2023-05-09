@@ -7,6 +7,44 @@ import ProjectInfo from '../components/ProjectInfo';
 const { container } = styles;
 const { section2 } = sectionStyles;
 
+const LOXIA_STACK = [
+    {name: 'Angular', amount: 100},
+    {name: 'Java', amount: 60},
+    {name: 'Javascript / TypeScript', amount: 100},
+    {name: 'Leaflet', amount: 70},
+    {name: 'CSS/SCSS', amount: 80},
+    {name: 'Kubernetes', amount: 70},
+    {name: 'Helm', amount: 15},
+    {name: 'Azure cloud', amount: 40},
+    {name: 'Sonar', amount: 30},
+    {name: 'CI/CD', amount: 20},
+    {name: 'Cypress', amount: 35},
+    {name: 'RxJs', amount: 50},
+    {name: 'NgRx & NgXs', amount: 50},
+    {name: 'ELK', amount: 20}
+]
+
+const NS_STACK = [
+    {name: 'Angular', amount: 60},
+    {name: 'Java', amount: 100},
+    {name: 'Javascript/TypeScript', amount: 60},
+    {name: 'D3js', amount: 20},
+    {name: 'CSS/SCSS', amount: 30},
+    {name: 'Sonar', amount: 30},
+    {name: 'Openshift', amount: 70},
+    {name: 'Docker', amount: 50},
+    {name: 'CI/CD', amount: 40},
+    {name: 'Applitools', amount: 10},
+    {name: 'OAuth 2.0', amount: 30},
+    {name: 'WebdriverIO', amount: 35},
+    {name: 'Wiremock', amount: 35},
+    {name: 'Hibernate', amount: 20},
+    {name: 'MyBatis', amount: 20},
+    {name: 'RxJs', amount: 20},
+    {name: 'NgXs', amount: 20},
+    {name: 'Nginx', amount: 20},
+]
+
 export default function Home() {
 
     return (
@@ -19,9 +57,9 @@ export default function Home() {
             <div>
                 <Intro></Intro>
                 <section id="section2" className={section2}>
-                    <h1 className={styles.title}>
+                    <h2 className={styles.title}>
                         Recent work
-                    </h1>
+                    </h2>
 
                     <ProjectInfo
                         title="Movares / RIGD Loxia"
@@ -29,6 +67,7 @@ export default function Home() {
                             Based on the needs, the designs determine what hardware needs to go where. The hardware consist of safety systems, signals, switches etc., all used to manage traintraffic.
                             The 'designs' are used by multiple clients for traffic management and to visualize the railways and traffic."
                         role="Full stack developer / Frontend Architect"
+                        stack={LOXIA_STACK}
                     >
                         <ul>
                             <li>Breathing new life into the frontend component-library</li>
@@ -51,6 +90,7 @@ export default function Home() {
                         next to offering public transport, is the creating the planning and timetables for all the traffic routes in the country.
                         <br><i>The main project consisted of creating a visual diagram depicting the planned train traffic over time. The diagram would be used during planning of timetables, to adjust and optimize planning and prevent conflicting routes</i>"
                         role="Lead Full stack developer"
+                        stack={NS_STACK}
                     >
                         <ul>
                             <li>Creating a new Full stack development team</li>

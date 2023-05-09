@@ -11,15 +11,11 @@
 }
 
 .stack {
-    margin-block: 50px;
+    margin-block: calc(50px + 8px);
     margin-left: 10%;
 }
 
 .stackItem {
-    &:before {
-        content: attr(data-value);
-    }
-
     transition: 2s;
     padding-left: 4px;
 }
