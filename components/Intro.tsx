@@ -35,7 +35,8 @@ export default function Intro() {
                 height={ 300 }
                 quality={ 100 }
                 style={ getImgStyle() }
-                priority
+                placeholder="blur"
+                blurDataURL={pic.blurDataURL}
             />
             <div className={ imgBorder }></div>
         </section>);
