@@ -7,15 +7,16 @@ interface ProjectInfoProps {
     title: string;
     description: string;
     role: string;
+    stack: { name: string; amount: number }[]
     children: ReactNode
 }
 
-const colors = ['#085F83AB', '#20263DAB', '#323E48AB', '#3834F2AB', '#66429CAB', '#685E5FAB', '#7A2129AB', '#818061AB', '#83A6F6AB', '#AAC7AFAB', 
-'#B1C3B4AB', '#C0D5DBAB', '#CBE684AB', '#CFD3D6AB', '#D7C1C1AB', '#EAC629AB', '#EC4A26AB', '#F1CB92AB', '#F23465AB', '#F4971AAB', '#F4BEBAAB', '#FD715D']
+const colors = ['#085F83AB', '#20263DAB', '#323E48AB', '#3834F2AB', '#66429CAB', '#685E5FAB', '#7A2129AB', '#818061AB', '#83A6F6AB', '#AAC7AFAB',
+    '#B1C3B4AB', '#C0D5DBAB', '#CBE684AB', '#CFD3D6AB', '#D7C1C1AB', '#EAC629AB', '#EC4A26AB', '#F1CB92AB', '#F23465AB', '#F4971AAB', '#F4BEBAAB', '#FD715D']
 
 const TIMEOUT = 200;
 
-export default function ProjectInfo({ title, description, role, children }: ProjectInfoProps) {
+export default function ProjectInfo({ title, description, role, stack, children }: ProjectInfoProps) {
     let colorIndex: number[] = [];
 
     const ref = useRef(null);
@@ -31,8 +32,8 @@ export default function ProjectInfo({ title, description, role, children }: Proj
                 const indices = Array.from(html.children).map(() => ++i).sort(() => 0.5 - Math.random());
                 indices.forEach(index => window.setTimeout(() => {
                     const child = html.children[index] as HTMLElement;
-                    // child.setAttribute('data-animate', '');
-                    child.style.borderLeft = `${child.getAttribute('data-amount')}px solid ${getRandomColor()}`;
+                    const amount = Number(child.getAttribute('data-amount')) * 1.5; // todo Responsive?
+                    child.style.borderLeft = `${amount}px solid ${getRandomColor()}`;
                 }, timeout += TIMEOUT));
             }
         })
@@ -40,9 +41,9 @@ export default function ProjectInfo({ title, description, role, children }: Proj
     }, []);
 
     function getRandomColor() {
-        while(true && colorIndex.length !== colors.length){
+        while (true && colorIndex.length !== colors.length) {
             const index = Math.floor(Math.random() * colors.length);
-            if(!colorIndex.includes(index)) {
+            if (!colorIndex.includes(index)) {
                 colorIndex.push(index);
                 return colors[index];
             }
@@ -63,11 +64,8 @@ export default function ProjectInfo({ title, description, role, children }: Proj
                 {children}
             </div>
             <div className={styles.stack}>
-                <h2>Stack used</h2>
                 <div ref={ref}>
-                    <p className={styles.stackItem} data-color="green" data-amount="70" data-value="Angular"></p>
-                    <p className={styles.stackItem} data-color="blue" data-amount="20" data-value="Kubernetes"></p>
-                    <p className={styles.stackItem} data-color="red" data-amount="30" data-value="Cypress"></p>
+                    {stack.map(item => <p key={item.name} className={styles.stackItem} data-amount={item.amount}>{item.name}</p>)}
                 </div>
             </div>
         </div>
