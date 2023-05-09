@@ -8,8 +8,10 @@
     width: 40%;
 }
 .stack{
-    p[data-animate]{
-        background-color: green;
+    &:before {
+        content: attr(data-value);
+    }
+    &[data-animate]{
+        transition: 2s;
     }
 }
-
