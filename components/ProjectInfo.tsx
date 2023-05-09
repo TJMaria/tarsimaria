@@ -10,9 +10,10 @@ interface ProjectInfoProps {
     children: ReactNode
 }
 
-const colors = ['#085F83', '#20263D', '#323E48', '#3834F2', '#66429C', '#685E5F', '#7A2129', '#818061', '#83A6F6', '#AAC7AF', 
-'#B1C3B4', '#C0D5DB', '#CBE684', '#CFD3D6', '#D7C1C1', '#EAC629', '#EC4A26', '#F1CB92', '#F23465', '#F4971A', '#F4BEBA', '#FD715D']
+const colors = ['#085F83AB', '#20263DAB', '#323E48AB', '#3834F2AB', '#66429CAB', '#685E5FAB', '#7A2129AB', '#818061AB', '#83A6F6AB', '#AAC7AFAB', 
+'#B1C3B4AB', '#C0D5DBAB', '#CBE684AB', '#CFD3D6AB', '#D7C1C1AB', '#EAC629AB', '#EC4A26AB', '#F1CB92AB', '#F23465AB', '#F4971AAB', '#F4BEBAAB', '#FD715D']
 
+const TIMEOUT = 200;
 
 export default function ProjectInfo({ title, description, role, children }: ProjectInfoProps) {
     let colorIndex: number[] = [];
@@ -26,34 +27,27 @@ export default function ProjectInfo({ title, description, role, children }: Proj
                 hasBeenSeen = true;
                 colorIndex = []
                 let i = -1
-                let timeout = 200;
+                let timeout = TIMEOUT;
                 const indices = Array.from(html.children).map(() => ++i).sort(() => 0.5 - Math.random());
                 indices.forEach(index => window.setTimeout(() => {
                     const child = html.children[index] as HTMLElement;
-                    child.setAttribute('data-animate', '');
-                    const amount = `${child.getAttribute('data-amount')}px`;
-                    // child.style.borderLeft = child.getAttribute('data-amount') + `px solid ${child.getAttribute('data-color')}`;
-                    child.style.borderLeft = amount + ` solid ${getRandomColor()}`;
-                    console.log('amount', amount);
-                }, timeout += 200));
+                    // child.setAttribute('data-animate', '');
+                    child.style.borderLeft = `${child.getAttribute('data-amount')}px solid ${getRandomColor()}`;
+                }, timeout += TIMEOUT));
             }
         })
         ref.current && observer.observe(ref.current);
     }, []);
 
     function getRandomColor() {
-        let color = colors[3];
-        // let color = null;
         while(true && colorIndex.length !== colors.length){
             const index = Math.floor(Math.random() * colors.length);
             if(!colorIndex.includes(index)) {
                 colorIndex.push(index);
-                color = colors[index];
-                break;
+                return colors[index];
             }
         }
-        console.log('color', color);
-        return color;
+        return colors[0];
     }
 
     return (
@@ -68,12 +62,12 @@ export default function ProjectInfo({ title, description, role, children }: Proj
                 <h4>Noteworthy contributions</h4>
                 {children}
             </div>
-            <div>
+            <div className={styles.stack}>
                 <h2>Stack used</h2>
                 <div ref={ref}>
-                    <p className={styles.stack} data-color="green" data-amount="70" data-value="Angular"></p>
-                    <p className={styles.stack} data-color="blue" data-amount="20" data-value="Kubernetes"></p>
-                    <p className={styles.stack} data-color="red" data-amount="30" data-value="Cypress"></p>
+                    <p className={styles.stackItem} data-color="green" data-amount="70" data-value="Angular"></p>
+                    <p className={styles.stackItem} data-color="blue" data-amount="20" data-value="Kubernetes"></p>
+                    <p className={styles.stackItem} data-color="red" data-amount="30" data-value="Cypress"></p>
                 </div>
             </div>
         </div>

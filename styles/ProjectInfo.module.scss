@@ -1,17 +1,25 @@
-.projectContainer{
+.projectContainer {
     display: flex;
+    margin-inline: 10%;
 }
-.projectInfo{
-    margin: 50px;
+
+.projectInfo {
+    margin-block: 50px;
     border-bottom: 1px solid var(--color2);
 
     width: 40%;
 }
-.stack{
+
+.stack {
+    margin-block: 50px;
+    margin-left: 10%;
+}
+
+.stackItem {
     &:before {
         content: attr(data-value);
     }
-    &[data-animate]{
-        transition: 2s;
-    }
+
+    transition: 2s;
+    padding-left: 4px;
 }
