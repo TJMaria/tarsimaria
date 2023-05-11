@@ -7,42 +7,50 @@ import ProjectInfo from '../components/ProjectInfo';
 const { container } = styles;
 const { section2 } = sectionStyles;
 
+const HQ_STACK = [
+    { name: 'VueJS', amount: 100 },
+    { name: 'Javascript / TypeScript', amount: 100 },
+    { name: 'WebComponents', amount: 50 },
+    { name: 'CSS/SCSS', amount: 80 },
+];
+
 const LOXIA_STACK = [
-    {name: 'Angular', amount: 100},
-    {name: 'Java', amount: 60},
-    {name: 'Javascript / TypeScript', amount: 100},
-    {name: 'Leaflet', amount: 70},
-    {name: 'CSS/SCSS', amount: 80},
-    {name: 'Kubernetes', amount: 70},
-    {name: 'Helm', amount: 15},
-    {name: 'Azure cloud', amount: 40},
-    {name: 'Sonar', amount: 30},
-    {name: 'CI/CD', amount: 20},
-    {name: 'Cypress', amount: 35},
-    {name: 'RxJs', amount: 50},
-    {name: 'NgRx & NgXs', amount: 50},
-    {name: 'ELK', amount: 20}
+    { name: 'Angular', amount: 100 },
+    { name: 'Java', amount: 60 },
+    { name: 'Javascript / TypeScript', amount: 100 },
+    { name: 'Leaflet', amount: 70 },
+    { name: 'CSS/SCSS', amount: 80 },
+    { name: 'Kubernetes', amount: 70 },
+    { name: 'Helm', amount: 15 },
+    { name: 'Azure cloud', amount: 40 },
+    { name: 'Sonar', amount: 30 },
+    { name: 'CI/CD', amount: 20 },
+    { name: 'Cypress', amount: 35 },
+    { name: 'RxJs', amount: 50 },
+    { name: 'NgRx & NgXs', amount: 50 },
+    { name: 'ELK', amount: 20 }
 ]
 
 const NS_STACK = [
-    {name: 'Angular', amount: 60},
-    {name: 'Java', amount: 100},
-    {name: 'Javascript/TypeScript', amount: 60},
-    {name: 'D3js', amount: 20},
-    {name: 'CSS/SCSS', amount: 30},
-    {name: 'Sonar', amount: 30},
-    {name: 'Openshift', amount: 70},
-    {name: 'Docker', amount: 50},
-    {name: 'CI/CD', amount: 40},
-    {name: 'Applitools', amount: 10},
-    {name: 'OAuth 2.0', amount: 30},
-    {name: 'WebdriverIO', amount: 35},
-    {name: 'Wiremock', amount: 35},
-    {name: 'Hibernate', amount: 20},
-    {name: 'MyBatis', amount: 20},
-    {name: 'RxJs', amount: 20},
-    {name: 'NgXs', amount: 20},
-    {name: 'Nginx', amount: 20},
+    { name: 'Angular', amount: 60 },
+    { name: 'Java', amount: 100 },
+    { name: 'NodeJs', amount: 25 },
+    { name: 'Javascript/TypeScript', amount: 60 },
+    { name: 'D3js', amount: 20 },
+    { name: 'CSS/SCSS', amount: 30 },
+    { name: 'Sonar', amount: 30 },
+    { name: 'Openshift', amount: 70 },
+    { name: 'Docker', amount: 50 },
+    { name: 'CI/CD', amount: 40 },
+    { name: 'Applitools', amount: 10 },
+    { name: 'OAuth 2.0', amount: 30 },
+    { name: 'WebdriverIO', amount: 35 },
+    { name: 'Wiremock', amount: 35 },
+    { name: 'Hibernate', amount: 20 },
+    { name: 'MyBatis', amount: 20 },
+    { name: 'RxJs', amount: 20 },
+    { name: 'NgXs', amount: 20 },
+    { name: 'Nginx', amount: 20 },
 ]
 
 export default function Home() {
@@ -58,8 +66,25 @@ export default function Home() {
                 <Intro></Intro>
                 <section id="section2" className={section2}>
                     <h2 className={styles.title}>
-                        Recent work
+                        Recent projects
                     </h2>
+
+                    <ProjectInfo
+                        title="HQ Rental Software"
+                        description="HQ rental software is currently the <a href='https://www.investopedia.com/best-car-rental-software-5091848' target='_blank'>leading solution</a> for (car) rental companies. HQ offers an all-in-one solution including:
+                        <ul>
+                            <li>Online reservations</li>
+                            <li>Fleet management</li>
+                            <li>Self-service car rental</li>
+                            <li>Telematics</li>
+                        </ul>
+                        "
+                        role="Frontend developer"
+                        stack={HQ_STACK}
+                    >
+                        Creating a new widget for online reservations. The Widget would give a client the freedom to customize the styling as needed, with ease.
+                     </ProjectInfo>
+
 
                     <ProjectInfo
                         title="Movares / RIGD Loxia"
