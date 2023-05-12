@@ -3,20 +3,20 @@
     height: 800px;
     padding-top: 50px;
     border-bottom: solid 1px var(--color1);
+
+    h1 {
+        padding-top: 48px;
+    }
+
+    h1,h3 {
+        margin-left: 10%;
+        pointer-events: none;
+    }
+    * {
+        pointer-events: none;
+    }
 }
-
-
-.introSection > h1 {
-    padding-top: 48px;
-}
-
-.introSection > h1,
-.introSection > h3 {
-    margin-left: 10% ;
-    pointer-events: none;
-}
-
-.imgBorder{
+.imgBorder {
     position: absolute;
     border-top-right-radius: 5%;
     border-bottom-left-radius: 5%;
