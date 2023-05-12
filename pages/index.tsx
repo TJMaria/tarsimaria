@@ -5,7 +5,6 @@ import Intro from '../components/Intro';
 import ProjectInfo from '../components/ProjectInfo';
 
 const { container } = styles;
-const { section2 } = sectionStyles;
 
 const HQ_STACK = [
     { name: 'VueJS', amount: 100 },
@@ -64,7 +63,7 @@ export default function Home() {
 
             <div>
                 <Intro></Intro>
-                <section id="section2" className={section2}>
+                <section className={sectionStyles.projectSection}>
                     <h2 className={styles.title}>
                         Recent projects
                     </h2>
@@ -79,11 +78,12 @@ export default function Home() {
                             <li>Telematics</li>
                         </ul>
                         "
+                        left={true}
                         role="Frontend developer"
                         stack={HQ_STACK}
                     >
-                        Creating a new widget for online reservations. The Widget would give a client the freedom to customize the styling as needed, with ease.
-                     </ProjectInfo>
+                        Creating a new widget for online reservations that is connected to the fleet management system. The widget gives clients the freedom to customize the styling with ease.
+                    </ProjectInfo>
 
 
                     <ProjectInfo
@@ -91,7 +91,7 @@ export default function Home() {
                         description="An engineering company that is responsible for creating and maintaining the design of the dutch railways.
                             Based on the needs, the designs determine what hardware needs to go where. The hardware consist of safety systems, signals, switches etc., all used to manage traintraffic.
                             The 'designs' are used by multiple clients for traffic management and to visualize the railways and traffic."
-                        role="Full stack developer / Frontend Architect"
+                        role="Frontend Architect | Full stack developer"
                         stack={LOXIA_STACK}
                     >
                         <ul>
@@ -115,6 +115,7 @@ export default function Home() {
                         next to offering public transport, is the creating the planning and timetables for all the traffic routes in the country.
                         <br><i>The main project consisted of creating a visual diagram depicting the planned train traffic over time. The diagram would be used during planning of timetables, to adjust and optimize planning and prevent conflicting routes</i>"
                         role="Lead Full stack developer"
+                        left={true}
                         stack={NS_STACK}
                     >
                         <ul>

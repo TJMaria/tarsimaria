@@ -7,6 +7,7 @@ interface ProjectInfoProps {
     title: string;
     description: string;
     role: string;
+    left?: boolean;
     stack: { name: string; amount: number }[]
     children: ReactNode
 }
@@ -16,7 +17,7 @@ const colors = ['#085F83AB', '#20263DAB', '#323E48AB', '#3834F2AB', '#66429CAB',
 
 const TIMEOUT = 200;
 
-export default function ProjectInfo({ title, description, role, stack, children }: ProjectInfoProps) {
+export default function ProjectInfo({ title, description, role, stack, left, children }: ProjectInfoProps) {
     let colorIndex: number[] = [];
 
     const ref = useRef(null);
@@ -52,7 +53,7 @@ export default function ProjectInfo({ title, description, role, stack, children 
     }
 
     return (
-        <div className={styles.projectContainer}>
+        <div className={`${styles.projectContainer} ${left ? styles.projectContainerLeft : styles.projectContainerRight}`}>
             <div className={`${styles.projectInfo} ${styles.even}`}>
                 <h3>{title}</h3>
                 {parse(description)}
