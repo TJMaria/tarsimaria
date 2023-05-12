@@ -17,7 +17,8 @@ export default function Intro() {
             borderTopRightRadius: '5%',
             borderBottomLeftRadius: '5%',
             transform: 'translate(var(--img-x, 0px), var(--img-y, 0px))',
-            transition: 'transform 0.3s'
+            transition: 'transform 0.3s', 
+            pointerEvents: 'none'
         };
     }
 
@@ -51,9 +52,9 @@ export default function Intro() {
             const mousePos = { x: e.clientX - left, y: e.clientY - top };
 
             const imageSize = 300;
-            const leftX = width * 0.6 + 8;
+            const leftX = width * 0.6;
             const rightX = leftX + imageSize;
-            const topY = height * 0.3 + 8;
+            const topY = height * 0.3;
             const bottomY = topY + 300;
 
             const isLeft = mousePos.x < leftX;
