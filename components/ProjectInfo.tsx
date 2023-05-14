@@ -33,8 +33,8 @@ export default function ProjectInfo({ title, description, role, stack, left, chi
                 const indices = Array.from(html.children).map(() => ++i).sort(() => 0.5 - Math.random());
                 indices.forEach(index => window.setTimeout(() => {
                     const child = html.children[index] as HTMLElement;
-                    const amount = Number(child.getAttribute('data-amount')) * 1.5; // todo Responsive?
-                    child.style.borderLeft = `${amount}px solid ${getRandomColor()}`;
+                    const amount = Number(child.getAttribute('data-amount')); // todo Responsive?
+                    child.style.borderLeft = `calc(${amount}px * var(--stack-factor)) solid ${getRandomColor()}`;
                 }, timeout += TIMEOUT));
             }
         })

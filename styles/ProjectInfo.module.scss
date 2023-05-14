@@ -1,5 +1,28 @@
+@media only screen and (max-width: 1010px) {
+    .projectContainer{
+        --stack-factor: 1;
+    }   
+}
+
+@media (min-width: 1010px) {
+    .projectContainer{
+        --stack-factor: 1.5;
+    }   
+}
+
+@media (min-width: 850px) {
+    .projectContainer{
+        display: flex;
+    }   
+    .projectInfo{
+        width: 50%;
+    }
+    .stack {
+        margin-left: 10%;
+    }
+}
+
 .projectContainer {
-    display: flex;
     margin-inline: 8%;
     padding-inline: 2%;
     border-bottom: 1px solid var(--color2);
@@ -13,8 +36,7 @@
 }
 
 .projectInfo {
-    margin-block: 50px;
-    width: 40%;
+    padding-block: 50px;
 }
 
 .stack {

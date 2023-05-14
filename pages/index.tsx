@@ -8,7 +8,7 @@ const { container } = styles;
 
 const HQ_STACK = [
     { name: 'VueJS', amount: 100 },
-    { name: 'Javascript / TypeScript', amount: 100 },
+    { name: 'JavaScript / TypeScript', amount: 100 },
     { name: 'WebComponents', amount: 50 },
     { name: 'CSS/SCSS', amount: 80 },
 ];
@@ -16,7 +16,7 @@ const HQ_STACK = [
 const LOXIA_STACK = [
     { name: 'Angular', amount: 100 },
     { name: 'Java', amount: 60 },
-    { name: 'Javascript / TypeScript', amount: 100 },
+    { name: 'JavaScript / TypeScript', amount: 100 },
     { name: 'Leaflet', amount: 70 },
     { name: 'CSS/SCSS', amount: 80 },
     { name: 'Kubernetes', amount: 70 },
@@ -34,7 +34,7 @@ const NS_STACK = [
     { name: 'Angular', amount: 60 },
     { name: 'Java', amount: 100 },
     { name: 'NodeJs', amount: 25 },
-    { name: 'Javascript/TypeScript', amount: 60 },
+    { name: 'JavaScript/TypeScript', amount: 60 },
     { name: 'D3js', amount: 20 },
     { name: 'CSS/SCSS', amount: 30 },
     { name: 'Sonar', amount: 30 },
@@ -58,7 +58,7 @@ export default function Home() {
         <div className={container}>
             <Head>
                 <title>Tarsi Maria | TMiT </title>
-                <meta name="keywords" content="web development, programming, Javascript, Angular, React, NextJS" />
+                <meta name="keywords" content="full stack development, web development, programming, JavaScript, Typescript, Angular, React, NextJS, Vue, NodeJs" />
             </Head>
 
             <div>

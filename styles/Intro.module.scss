@@ -47,6 +47,7 @@
 
     @media (max-width: 1200px) {
         @include middle();
+        bottom: calc(40% - calc(var(--img-size) / 2));
     }
 
 }
