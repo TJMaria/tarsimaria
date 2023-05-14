@@ -1,18 +1,67 @@
+@mixin middle() {
+    left: 50%;
+    transform: translateX(-50%);
+}
+
 .introSection {
     position: relative;
+
     height: 100vh;
     padding-top: 50px;
     border-bottom: solid 1px var(--color1);
 
     * {
         pointer-events: none;
+        user-select: none;
     }
 }
-.introTitle{
+
+.introTitle {
     position: absolute;
+    width: max-content;
+    text-align: center;
+
+    @media (max-width: 1200px) {
+        bottom: 70%;
+        @include middle();
+    }
+
     bottom: 45%;
     left: 8%;
+
     h1 {
         padding-top: 48px;
+    }
+}
+
+// todo flexbox ?  wont work with eye tracking
+.introImg,
+.introImgEyeL,
+.introImgEyeR {
+    position: absolute;
+
+    bottom: calc(50% - calc(var(--img-size) / 2));
+    border-radius: 25%;
+    transition: transform 0.3s;
+    left: 60%;
+
+    @media (max-width: 1200px) {
+        @include middle();
+    }
+
+}
+
+.introImgEyeL {
+    transform: translate(var(--img-x-l, 0px), var(--img-y-l, 0px));
+    @media (max-width: 1200px) {
+        @include middle();
+    }
+}
+
+.introImgEyeR {
+
+    transform: translate(var(--img-x-r, 0px), var(--img-y-r, 0px));
+    @media (max-width: 1200px) {
+        @include middle();
     }
 }
