@@ -100,7 +100,7 @@ export default function Home() {
                     >
                         <ul>
                             <li>Breathing new life into the frontend component-library</li>
-                            <li>Improving UI/UI designs</li>
+                            <li>Improving UX/UI designs</li>
                             <li>Improving performance in a complex visualization webapp using GeoJson to visualize the complete rail-infrastructure using Leaflet
                                 <ul>
                                     <li>Analyzing and redesigning API's for more efficient data gathering</li>
