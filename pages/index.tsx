@@ -58,8 +58,7 @@ export default function Home() {
         <div className={container}>
             <Head>
                 <title>Tarsi Maria | TMiT </title>
-                <meta name="keywords" 
-                content="Tarsi Maria's development portfolio. Tarsi Maria is owner of TMiT. Tarsi is experienced in: full stack development, web development, programming, JavaScript, Typescript, Angular, React, NextJS, Vue, NodeJs" />
+                <meta name="description" key="desc" content="Tarsi Maria's development portfolio. Tarsi Maria is a full stack developer and owner of TMiT." />
             </Head>
 
             <div>
