@@ -3,6 +3,7 @@ import styles from '../styles/Layout.module.scss';
 import sectionStyles from '../styles/Section.module.scss';
 import Intro from '../components/Intro';
 import ProjectInfo from '../components/ProjectInfo';
+import pic from '../public/tmit.webp';
 
 const { container } = styles;
 
@@ -58,7 +59,10 @@ export default function Home() {
         <div className={container}>
             <Head>
                 <title>Tarsi Maria | TMiT </title>
-                <meta name="description" key="desc" content="Tarsi Maria's development portfolio. Tarsi Maria is a full stack developer and owner of TMiT." />
+                <meta name="description" content="Tarsi Maria's development portfolio. Tarsi Maria is a full stack developer and owner of TMiT." />
+                <meta name="og:description" content="Tarsi Maria's development portfolio. Tarsi Maria is a full stack developer and owner of TMiT." />
+                <meta name="image" content={pic.src} />
+                <meta name="og:image" content={pic.src} />
             </Head>
 
             <div>
