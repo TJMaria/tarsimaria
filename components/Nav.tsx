@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
-import pic from '../public/tmit.png';
+import pic from '../public/tmit.webp';
 import navStyles from '../styles/Nav.module.scss';
 
 let navElement: HTMLElement | null;

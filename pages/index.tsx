@@ -58,7 +58,8 @@ export default function Home() {
         <div className={container}>
             <Head>
                 <title>Tarsi Maria | TMiT </title>
-                <meta name="keywords" content="full stack development, web development, programming, JavaScript, Typescript, Angular, React, NextJS, Vue, NodeJs" />
+                <meta name="keywords" 
+                content="Tarsi Maria's development portfolio. Tarsi Maria is owner of TMiT. Tarsi is experienced in: full stack development, web development, programming, JavaScript, Typescript, Angular, React, NextJS, Vue, NodeJs" />
             </Head>
 
             <div>
@@ -97,13 +98,14 @@ export default function Home() {
                         <ul>
                             <li>Breathing new life into the frontend component-library</li>
                             <li>Improving UI/UI designs</li>
-                            <li>Improving performance in a complex visualization webapp using GeoJson to visualize the complete rail-infrastructure using Leaflet</li>
-                            <ul>
-                                <li>Analyzing and redesigning API's for more efficient data gathering</li>
-                                <li>Changing UX/UI to give the user better feedback as to not perceive the app as slow</li>
-                                <li>Reduced loading the complete dataset from 3 minutes to 10 seconds</li>
-                                <li>Removed latency during zooming and panning, by delaying and only rendering what is in view</li>
-                            </ul>
+                            <li>Improving performance in a complex visualization webapp using GeoJson to visualize the complete rail-infrastructure using Leaflet
+                                <ul>
+                                    <li>Analyzing and redesigning API's for more efficient data gathering</li>
+                                    <li>Changing UX/UI to give the user better feedback as to not perceive the app as slow</li>
+                                    <li>Reduced loading the complete dataset from 3 minutes to 10 seconds</li>
+                                    <li>Removed latency during zooming and panning, by delaying and only rendering what is in view</li>
+                                </ul>
+                            </li>
                             <li>Introducing visual regression testing</li>
                             <li>Setting up workshop to improve frontend development knowledge and UI design</li>
                         </ul>

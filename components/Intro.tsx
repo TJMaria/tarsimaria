@@ -1,8 +1,8 @@
 import Image from 'next/image';
-import { MutableRefObject, useLayoutEffect, useRef, useState } from 'react';
-import eyelessImg from '../public/TM_eyeless.png';
-import eyeImgL from '../public/TM_eye.png';
-import eyeImgR from '../public/TM_eye-r.png';
+import { MutableRefObject, useEffect, useRef, useState } from 'react';
+import eyelessImg from '../public/TM_eyeless.webp';
+import eyeImgL from '../public/TM_eye.webp';
+import eyeImgR from '../public/TM_eye-r.webp';
 import sectionStyles from '../styles/Intro.module.scss';
 
 const { introSection, introTitle, introImg, introImgEyeL, introImgEyeR } = sectionStyles;
@@ -18,7 +18,7 @@ export default function Intro() {
     const elementRef = useRef(null);
     const [imgSize, setImgSize] = useState(500);
 
-    useLayoutEffect(() => {
+    useEffect(() => {
         const handleImgSize = () => {
             const size = (elementRef.current as unknown as HTMLElement).offsetWidth > 1300 ? 500 : 300;
             leftXOffset = size / 300 * 122;
@@ -41,15 +41,15 @@ export default function Intro() {
             onMouseLeave={() => resetEyes()}>
             <div className={introTitle}>
                 <h1>Full stack developer</h1>
-                <h3>Angular | React | Vue | C++ | Java | NodeJs</h3>
+                <h2>Angular | React | Vue | C++ | Java | NodeJs</h2>
             </div>
-            <Image className={introImg} src={eyelessImg} alt="Picture of author/owner"
+            <Image className={introImg} src={eyelessImg} alt="Picture of author/owner" priority
                 width={imgSize} height={imgSize} quality={100} placeholder="blur" blurDataURL={eyelessImg.blurDataURL}
             />
-            <Image className={introImgEyeL} src={eyeImgL} alt="Picture of left eye"
+            <Image className={introImgEyeL} src={eyeImgL} alt="Picture of left eye" priority
                 width={imgSize} height={imgSize} quality={100} placeholder="blur" blurDataURL={eyeImgL.blurDataURL}
             />
-            <Image className={introImgEyeR} src={eyeImgR} alt="Picture of right eye"
+            <Image className={introImgEyeR} src={eyeImgR} alt="Picture of right eye" priority
                 width={imgSize} height={imgSize} quality={100} placeholder="blur" blurDataURL={eyeImgR.blurDataURL}
             />
         </section>);
