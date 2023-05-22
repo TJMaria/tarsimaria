@@ -68,6 +68,7 @@ export default function Home() {
                 <meta name="og:description" content="Tarsi Maria's development portfolio. Tarsi Maria is a full stack developer and owner of TMiT." />
                 <meta name="image" content={pic.src} />
                 <meta name="og:image" content={pic.src} />
+                <script dangerouslySetInnerHTML={{ __html: `history.scrollRestoration = "manual"` }} />
             </Head>
 
             <div>
