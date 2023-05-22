@@ -4,6 +4,7 @@ import sectionStyles from '../styles/Section.module.scss';
 import Intro from '../components/Intro';
 import ProjectInfo from '../components/ProjectInfo';
 import pic from '../public/tmit.webp';
+import LoadTitle from '../components/LoadTitle';
 
 const { container } = styles;
 
@@ -57,6 +58,8 @@ export default function Home() {
 
     return (
         <div className={container}>
+            <LoadTitle></LoadTitle>
+
             <Head>
                 <title>Tarsi Maria | TMiT </title>
                 <meta name="description" content="Tarsi Maria's development portfolio. Tarsi Maria is a full stack developer and owner of TMiT." />
