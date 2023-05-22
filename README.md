@@ -7,5 +7,4 @@ This is my portfolio website where i can give some information about my work whi
 TODO:
 * cleanup media queries (currently quick & dirty)
 * follow mouse pos with eyes on mobile, currently disabled
-* link github
 * Dark mode + toggle  (remember choice)
