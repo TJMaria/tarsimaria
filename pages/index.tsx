@@ -5,7 +5,7 @@ import pic from '../public/tmit.webp';
 import LoadTitle from '../components/LoadTitle';
 import { useState } from 'react';
 import Projects from '../components/Projects';
-import Contact from '../components/contact';
+import Contact from '../components/Contact';
 
 const { container } = layoutStyles;
 
