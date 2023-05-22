@@ -5,6 +5,7 @@ import pic from '../public/tmit.webp';
 import LoadTitle from '../components/LoadTitle';
 import { useState } from 'react';
 import Projects from '../components/Projects';
+import Contact from '../components/contact';
 
 const { container } = layoutStyles;
 
@@ -22,12 +23,13 @@ export default function Home() {
                 <meta name="image" content={pic.src} />
                 <meta name="og:image" content={pic.src} />
                 {/* Prevent browser from remembering last scroll position */}
-                <script dangerouslySetInnerHTML={{ __html: `history.scrollRestoration = "manual"` }} />
+                {/* <script dangerouslySetInnerHTML={{ __html: `history.scrollRestoration = "manual"` }} /> */}
             </Head>
 
             <div>
                 <Intro isLoaded={isLoaded}></Intro>
                 <Projects/>
+                <Contact/>
             </div>
         </div>
     );
