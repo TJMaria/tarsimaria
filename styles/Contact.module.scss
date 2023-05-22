@@ -1,13 +1,16 @@
 .contact {
     position: relative;
-    height: 63px;
-    padding: 10px;
+    height: 80px;
+    padding-block: 24px;
 
     .icons {
         position: absolute;
         transform: translateY(-50%) translateX(-50%);
         top: 50%;
         left: 50%;   
+        a { // Next/Link
+            margin-inline: 8px;
+        }
     }
     .icon {
         height: 40px;

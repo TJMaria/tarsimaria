@@ -1,5 +1,4 @@
 import ProjectInfo from './ProjectInfo';
-import sectionStyles from '../styles/Section.module.scss';
 import layoutStyles from '../styles/Layout.module.scss';
 
 const HQ_STACK = [
@@ -50,7 +49,7 @@ const NS_STACK = [
 export default function Projects() {
 
     return (
-        <section className={sectionStyles.projectSection}>
+        <section>
                     <h2 className={layoutStyles.title}> Recent projects </h2>
 
                     <ProjectInfo

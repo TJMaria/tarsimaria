@@ -41,12 +41,15 @@
 }
 
 .stack {
-    padding-block: calc(50px + 8px);
+    padding-block: 48px;
     @media only screen and (max-width: 1010px) {
         padding-top: 0;
     }
 
     margin-left: 10%;
+    .stackItem:first-child {
+        margin: 0;
+    }
 }
 
 .stackItem {
