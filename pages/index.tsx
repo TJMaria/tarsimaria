@@ -6,6 +6,7 @@ import LoadTitle from '../components/LoadTitle';
 import { useState } from 'react';
 import Projects from '../components/Projects';
 import Contact from '../components/Contact';
+import Script from 'next/script';
 
 const { container } = layoutStyles;
 
@@ -23,13 +24,13 @@ export default function Home() {
                 <meta name="image" content={pic.src} />
                 <meta name="og:image" content={pic.src} />
                 {/* Prevent browser from remembering last scroll position */}
-                {/* <script dangerouslySetInnerHTML={{ __html: `history.scrollRestoration = "manual"` }} /> */}
+                <Script dangerouslySetInnerHTML={{ __html: `history.scrollRestoration = "manual"` }} />
             </Head>
 
             <div>
                 <Intro isLoaded={isLoaded}></Intro>
-                <Projects/>
-                <Contact/>
+                <Projects />
+                <Contact />
             </div>
         </div>
     );
