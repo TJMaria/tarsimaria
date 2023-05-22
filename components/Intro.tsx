@@ -14,11 +14,18 @@ let count = 0;
 
 let sectionElement: HTMLElement;
 
-export default function Intro() {
+export default function Intro({ isLoaded }: { isLoaded: boolean }) {
     const elementRef = useRef(null);
     const [imgSize, setImgSize] = useState(500);
 
     useEffect(() => {
+        if (isLoaded) {
+            initEyes(elementRef)
+        }
+    }, [isLoaded]);
+
+    useEffect(() => {
+
         const handleImgSize = () => {
             const size = (elementRef.current as unknown as HTMLElement).offsetWidth > 1300 ? 500 : 300;
             leftXOffset = size / 300 * 122;
@@ -36,7 +43,6 @@ export default function Intro() {
     return (
         <section ref={elementRef} className={introSection}
             style={{ "--img-size": `${imgSize}px` } as any}
-            onMouseEnter={initEyes(elementRef)}
             onMouseMove={handleMouseMove}
             onMouseLeave={() => resetEyes()}>
             <div className={introTitle}>
@@ -91,6 +97,7 @@ const eyeShakeStepsBase = [
     { isLeft: false, isRight: true, isAbove: false, isBelow: false },
     { isLeft: false, isRight: false, isAbove: false, isBelow: true },
     { isLeft: false, isRight: false, isAbove: false, isBelow: false },
+    { isLeft: true, isRight: false, isAbove: false, isBelow: false }
 ]
 const eyeShakeSteps = [...eyeShakeStepsBase, ...eyeShakeStepsBase, ...eyeShakeStepsBase]
 const eyeShake = () => {
@@ -102,10 +109,8 @@ const eyeShake = () => {
 }
 
 function initEyes(ref: MutableRefObject<HTMLElement | null>) {
-    return () => {
-        sectionElement = sectionElement ? sectionElement : ref.current as unknown as HTMLElement;
-        eyeShake();
-    }
+    sectionElement = sectionElement ? sectionElement : ref.current as unknown as HTMLElement;
+    eyeShake();
 }
 
 function updateEyes({ isLeft, isRight, isAbove, isBelow }: any) {

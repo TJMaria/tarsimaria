@@ -5,6 +5,7 @@ import Intro from '../components/Intro';
 import ProjectInfo from '../components/ProjectInfo';
 import pic from '../public/tmit.webp';
 import LoadTitle from '../components/LoadTitle';
+import { useState } from 'react';
 
 const { container } = styles;
 
@@ -55,10 +56,11 @@ const NS_STACK = [
 ]
 
 export default function Home() {
+    const [isLoaded, setIsLoaded] = useState(false);
 
     return (
         <div className={container}>
-            <LoadTitle></LoadTitle>
+            <LoadTitle setIsLoaded={setIsLoaded}></LoadTitle>
 
             <Head>
                 <title>Tarsi Maria | TMiT </title>
@@ -69,7 +71,7 @@ export default function Home() {
             </Head>
 
             <div>
-                <Intro></Intro>
+                <Intro isLoaded={isLoaded}></Intro>
                 <section className={sectionStyles.projectSection}>
                     <h2 className={styles.title}>
                         Recent projects
