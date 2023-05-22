@@ -47,7 +47,7 @@ export default function Intro({ isLoaded }: { isLoaded: boolean }) {
             onMouseLeave={() => resetEyes()}>
             <div className={introTitle}>
                 <h1>Full stack developer</h1>
-                <h2>Angular | React | Vue | C++ | Java | NodeJs | ...</h2>
+                <h3>Angular | React | Vue | C++ | Java | NodeJs</h3>
             </div>
             <Image className={introImg} src={eyelessImg} alt="Picture of author/owner" priority
                 width={imgSize} height={imgSize} quality={100} placeholder="blur" blurDataURL={eyelessImg.blurDataURL}

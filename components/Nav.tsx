@@ -26,7 +26,7 @@ export default function Nav() {
                 <Image
                     src={pic}
                     alt="TMiT logo"
-                    width={200}
+                    width={160}
                     quality={100}
                     style={{ marginTop: '2px', cursor: 'pointer' }}
                     priority

@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import styles from '../styles/Layout.module.scss';
+import layoutStyles from '../styles/Layout.module.scss';
 import sectionStyles from '../styles/Section.module.scss';
 import Intro from '../components/Intro';
 import ProjectInfo from '../components/ProjectInfo';
@@ -7,11 +7,11 @@ import pic from '../public/tmit.webp';
 import LoadTitle from '../components/LoadTitle';
 import { useState } from 'react';
 
-const { container } = styles;
+const { container } = layoutStyles;
 
 const HQ_STACK = [
     { name: 'VueJS', amount: 100 },
-    { name: 'JavaScript / TypeScript', amount: 100 },
+    { name: 'JavaScript/TypeScript', amount: 100 },
     { name: 'WebComponents', amount: 50 },
     { name: 'CSS/SCSS', amount: 80 },
 ];
@@ -19,7 +19,7 @@ const HQ_STACK = [
 const LOXIA_STACK = [
     { name: 'Angular', amount: 100 },
     { name: 'Java', amount: 60 },
-    { name: 'JavaScript / TypeScript', amount: 100 },
+    { name: 'JavaScript/TypeScript', amount: 100 },
     { name: 'Leaflet', amount: 70 },
     { name: 'CSS/SCSS', amount: 80 },
     { name: 'Kubernetes', amount: 70 },
@@ -68,13 +68,14 @@ export default function Home() {
                 <meta name="og:description" content="Tarsi Maria's development portfolio. Tarsi Maria is a full stack developer and owner of TMiT." />
                 <meta name="image" content={pic.src} />
                 <meta name="og:image" content={pic.src} />
+                {/* Prevent browser from remembering last scroll position */}
                 <script dangerouslySetInnerHTML={{ __html: `history.scrollRestoration = "manual"` }} />
             </Head>
 
             <div>
                 <Intro isLoaded={isLoaded}></Intro>
                 <section className={sectionStyles.projectSection}>
-                    <h2 className={styles.title}>
+                    <h2 className={layoutStyles.title}>
                         Recent projects
                     </h2>
 
