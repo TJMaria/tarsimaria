@@ -39,6 +39,7 @@
 .introImgEyeL,
 .introImgEyeR {
     position: absolute;
+    pointer-events: initial;
 
     bottom: calc(50% - calc(var(--img-size) / 2));
     border-radius: 25%;
@@ -49,15 +50,31 @@
         @include middle();
         bottom: calc(40% - calc(var(--img-size) / 2));
     }
+}
 
+.callToAction {
+    position: absolute;
+    color: #cd5c5cba;
+    font-size: 0.8rem;
+    bottom: calc(50% - calc(var(--img-size) / 2) - 18px);
+    left: calc(60% + var(--img-size) - var(--img-size) / 1.5);
+    width: max-content;
+
+    @media (max-width: 1300px) {
+        left: calc(60% + var(--img-size) - var(--img-size) / 1.25);
+    }
+
+    @media (max-width: 1200px) {
+        @include middle();
+        bottom: calc(40% - var(--img-size) + var(--img-size) / 2.3);
+    }
 }
 
 .introImgEyeL {
     transform: translate(var(--img-x-l, 0px), var(--img-y-l, 0px));
-    
+
     @media (max-width: 1200px) {
-        // @include middle(); // resets transform and negates eye movement
-        left: 50%; 
+        left: 50%;
         transform: translateX(-50%) translate(var(--img-x-l, 0px), var(--img-y-l, 0px));
     }
 }
@@ -66,8 +83,7 @@
     transform: translate(var(--img-x-r, 0px), var(--img-y-r, 0px));
 
     @media (max-width: 1200px) {
-        // @include middle(); // resets transform and negates eye movement
-        left: 50%; 
+        left: 50%;
         transform: translateX(-50%) translate(var(--img-x-r, 0px), var(--img-y-r, 0px));
     }
 }

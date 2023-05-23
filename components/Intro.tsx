@@ -5,7 +5,7 @@ import eyeImgL from '../public/TM_eye.webp';
 import eyeImgR from '../public/TM_eye-r.webp';
 import sectionStyles from '../styles/Intro.module.scss';
 
-const { introSection, introTitle, introImg, introImgEyeL, introImgEyeR } = sectionStyles;
+const { introSection, introTitle, introImg, introImgEyeL, introImgEyeR, callToAction } = sectionStyles;
 
 let leftXOffset: number;
 let topYOffset: number;
@@ -16,6 +16,7 @@ let sectionElement: HTMLElement;
 
 let mobileView = false
 let elementWidth = 0;
+let eyesActive = false;
 
 export default function Intro({ isLoaded }: { isLoaded: boolean }) {
     const elementRef = useRef(null);
@@ -44,7 +45,6 @@ export default function Intro({ isLoaded }: { isLoaded: boolean }) {
         return () => window.removeEventListener('resize', handleImgSize);
     }, []);
 
-
     return (
         <section ref={elementRef} className={introSection}
             style={{ "--img-size": `${imgSize}px` } as any}
@@ -56,20 +56,23 @@ export default function Intro({ isLoaded }: { isLoaded: boolean }) {
             </div>
             <Image className={introImg} src={eyelessImg} alt="Picture of author/owner" priority
                 width={imgSize} height={imgSize} quality={100} placeholder="blur" blurDataURL={eyelessImg.blurDataURL}
+                onClick={eyeShake}
             />
             <Image className={introImgEyeL} src={eyeImgL} alt="Picture of left eye" priority
                 width={imgSize} height={imgSize} quality={100} placeholder="blur" blurDataURL={eyeImgL.blurDataURL}
+                onClick={eyeShake}
             />
             <Image className={introImgEyeR} src={eyeImgR} alt="Picture of right eye" priority
                 width={imgSize} height={imgSize} quality={100} placeholder="blur" blurDataURL={eyeImgR.blurDataURL}
+                onClick={eyeShake}
             />
+            <div className={callToAction}>Click me to activate my eyes :)</div>
         </section>);
 
     function handleMouseMove(e: React.MouseEvent<HTMLElement>) {
-        if (count < eyeShakeSteps.length) {
+        if (!eyesActive) {
             return;
         }
-        sectionElement = sectionElement ? sectionElement : elementRef.current as unknown as HTMLElement;
 
         const target = e.target as HTMLElement;
         const { width, height, left, top } = target.getBoundingClientRect();
@@ -110,14 +113,15 @@ const eyeShake = () => {
         updateEyes(eyeShakeSteps[count]);
         count++;
         window.setTimeout(eyeShake, 100)
-    } else{
+    } else {
+        eyesActive = !eyesActive;
         resetEyes();
     }
 }
 
 function initEyes(ref: MutableRefObject<HTMLElement | null>) {
     sectionElement = sectionElement ? sectionElement : ref.current as unknown as HTMLElement;
-    eyeShake();
+    // eyeShake();
 }
 
 function updateEyes({ isLeft, isRight, isAbove, isBelow }: any) {
