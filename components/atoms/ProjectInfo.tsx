@@ -1,6 +1,6 @@
 import { ReactNode, useRef, useEffect, useState } from 'react';
 
-import styles from '../styles/ProjectInfo.module.scss';
+import styles from '../../styles/ProjectInfo.module.scss';
 import parse from 'html-react-parser';
 
 interface ProjectInfoProps {

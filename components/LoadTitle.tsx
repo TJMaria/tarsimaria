@@ -9,7 +9,6 @@ export default function LoadTitle({ setIsLoaded }: { setIsLoaded: (isLoaded: boo
     setTimeout(() => {
         setFadeComponent(true)
         setTimeout(() => {
-            // window.document.body.style.setProperty('overflow', 'initial');
             setShowComponent(false);
             setIsLoaded(true);
         }, 500)
