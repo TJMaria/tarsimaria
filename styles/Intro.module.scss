@@ -11,7 +11,6 @@
     padding-top: 50px;
 
     * {
-        pointer-events: none;
         user-select: none;
     }
 }
@@ -39,12 +38,11 @@
 .introImgEyeL,
 .introImgEyeR {
     position: absolute;
-    pointer-events: initial;
-
     bottom: calc(50% - calc(var(--img-size) / 2));
     border-radius: 25%;
     transition: transform 0.3s;
     left: 60%;
+    cursor: pointer;
 
     @media (max-width: 1200px) {
         @include middle();
@@ -59,6 +57,7 @@
     bottom: calc(50% - calc(var(--img-size) / 2) - 18px);
     left: calc(60% + var(--img-size) - var(--img-size) / 1.5);
     width: max-content;
+    cursor: pointer;
 
     @media (max-width: 1300px) {
         left: calc(60% + var(--img-size) - var(--img-size) / 1.25);

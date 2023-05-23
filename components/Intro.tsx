@@ -66,7 +66,7 @@ export default function Intro({ isLoaded }: { isLoaded: boolean }) {
                 width={imgSize} height={imgSize} quality={100} placeholder="blur" blurDataURL={eyeImgR.blurDataURL}
                 onClick={eyeShake}
             />
-            <div className={callToAction}>Click me to activate my eyes :)</div>
+            <div className={callToAction} onClick={eyeShake}>Click me to activate my eyes :)</div>
         </section>);
 
     function handleMouseMove(e: React.MouseEvent<HTMLElement>) {
@@ -74,7 +74,10 @@ export default function Intro({ isLoaded }: { isLoaded: boolean }) {
             return;
         }
 
-        const target = e.target as HTMLElement;
+        let target = e.target as HTMLElement;
+        if(target instanceof HTMLImageElement && target.parentElement) {
+            target = target.parentElement;
+        }
         const { width, height, left, top } = target.getBoundingClientRect();
         const mousePos = { x: e.clientX - left, y: e.clientY - top };
 
