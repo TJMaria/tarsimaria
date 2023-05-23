@@ -31,7 +31,7 @@ export default function Intro({ isLoaded }: { isLoaded: boolean }) {
         const handleImgSize = () => {
             elementWidth = (elementRef.current as unknown as HTMLElement).offsetWidth;
             mobileView = elementWidth <= 1200;
-    
+
             const size = elementWidth > 1300 ? 500 : 300;
             leftXOffset = size / 300 * 122;
             topYOffset = size / 300 * 116;
@@ -110,6 +110,8 @@ const eyeShake = () => {
         updateEyes(eyeShakeSteps[count]);
         count++;
         window.setTimeout(eyeShake, 100)
+    } else{
+        resetEyes();
     }
 }
 
