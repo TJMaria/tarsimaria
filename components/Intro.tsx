@@ -14,6 +14,9 @@ let count = 0;
 
 let sectionElement: HTMLElement;
 
+let mobileView = false
+let elementWidth = 0;
+
 export default function Intro({ isLoaded }: { isLoaded: boolean }) {
     const elementRef = useRef(null);
     const [imgSize, setImgSize] = useState(500);
@@ -25,9 +28,11 @@ export default function Intro({ isLoaded }: { isLoaded: boolean }) {
     }, [isLoaded]);
 
     useEffect(() => {
-
         const handleImgSize = () => {
-            const size = (elementRef.current as unknown as HTMLElement).offsetWidth > 1300 ? 500 : 300;
+            elementWidth = (elementRef.current as unknown as HTMLElement).offsetWidth;
+            mobileView = elementWidth <= 1200;
+    
+            const size = elementWidth > 1300 ? 500 : 300;
             leftXOffset = size / 300 * 122;
             topYOffset = size / 300 * 116;
             followPx = size / 300 * 0.6;
@@ -70,9 +75,9 @@ export default function Intro({ isLoaded }: { isLoaded: boolean }) {
         const { width, height, left, top } = target.getBoundingClientRect();
         const mousePos = { x: e.clientX - left, y: e.clientY - top };
 
-        const leftX = width * 0.6 + leftXOffset;
+        const leftX = (mobileView ? (elementWidth - imgSize) / 2 : width * 0.6) + leftXOffset;
         const rightX = leftX + (30 / 500) * imgSize;
-        const topY = (height * 0.5) - (imgSize / 2) + topYOffset;
+        const topY = (height * (mobileView ? 0.6 : 0.5)) - (imgSize / 2) + topYOffset;
         const bottomY = topY + (6 / 500) * imgSize;
 
         const isLeft = mousePos.x < leftX;
@@ -99,7 +104,7 @@ const eyeShakeStepsBase = [
     { isLeft: false, isRight: false, isAbove: false, isBelow: false },
     { isLeft: true, isRight: false, isAbove: false, isBelow: false }
 ]
-const eyeShakeSteps = [...eyeShakeStepsBase, ...eyeShakeStepsBase, ...eyeShakeStepsBase]
+const eyeShakeSteps = [...eyeShakeStepsBase, ...eyeShakeStepsBase]
 const eyeShake = () => {
     if (count < eyeShakeSteps.length) {
         updateEyes(eyeShakeSteps[count]);

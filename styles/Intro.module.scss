@@ -55,8 +55,9 @@
     transform: translate(var(--img-x-l, 0px), var(--img-y-l, 0px));
     
     @media (max-width: 1200px) {
-        @include middle(); // resets transform and negates eye movement
-        // left: 50%; transform: translateX(-50%) translate(var(--img-x-l, 0px), var(--img-y-l, 0px));
+        // @include middle(); // resets transform and negates eye movement
+        left: 50%; 
+        transform: translateX(-50%) translate(var(--img-x-l, 0px), var(--img-y-l, 0px));
     }
 }
 
@@ -64,7 +65,8 @@
     transform: translate(var(--img-x-r, 0px), var(--img-y-r, 0px));
 
     @media (max-width: 1200px) {
-        @include middle(); // resets transform and negates eye movement
-        // left: 50%; transform: translateX(-50%) translate(var(--img-x-r, 0px), var(--img-y-r, 0px));
+        // @include middle(); // resets transform and negates eye movement
+        left: 50%; 
+        transform: translateX(-50%) translate(var(--img-x-r, 0px), var(--img-y-r, 0px));
     }
 }
