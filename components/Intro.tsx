@@ -114,14 +114,12 @@ const eyeShake = () => {
         count++;
         window.setTimeout(eyeShake, 100)
     } else {
-        eyesActive = !eyesActive;
-        resetEyes();
+        eyesActive = true;
     }
 }
 
 function initEyes(ref: MutableRefObject<HTMLElement | null>) {
     sectionElement = sectionElement ? sectionElement : ref.current as unknown as HTMLElement;
-    // eyeShake();
 }
 
 function updateEyes({ isLeft, isRight, isAbove, isBelow }: any) {
