@@ -12,6 +12,8 @@ body {
 
 ::-webkit-scrollbar {
     display: none;
+    -webkit-appearance: none; // mobile?
+    -ms-overflow-style: none;
 }
 
 :root {
@@ -31,12 +33,15 @@ a {
 #scroll-progress {
     position: fixed;
     top: 0;
-    right: 0;
+    right: 4px;
 
-    border-radius: 20px;
+    // border-radius: 20px;
     background: var(--color1);
 
-    z-index: 10000;
+    transition: top 1s;
+
+
+    z-index: 98;
 }
 
 

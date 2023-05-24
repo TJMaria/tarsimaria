@@ -8,27 +8,29 @@ import pic from '../public/tmit.webp';
 import layoutStyles from '../styles/Layout.module.scss';
 
 const { container } = layoutStyles;
+const NAVBAR_HEIGHT = 64;
 
 function Home({ isMobileView }: any) {
     const [isLoaded, setIsLoaded] = useState(false);
     useEffect(() => {
-        if (isMobileView) {
+        if (isMobileView || !isLoaded) {
             return;
         }
         const scrollProgress = document.getElementById('scroll-progress') as HTMLElement;
-        scrollProgress.style.width = '8px';
+        scrollProgress.style.top = '64px';
+        scrollProgress.style.width = '6px';
         const { scrollHeight, clientHeight } = document.documentElement;
-        const height = scrollHeight - clientHeight * 0.8;
+        const height = (scrollHeight) - (clientHeight) * 0.9;
 
         const listener = () => {
             const scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
-            scrollProgress.style.height = `${ (clientHeight * 0.2 / height) * 100 + (scrollTop / height) * 100 }%`;
+            scrollProgress.style.height = `${ (clientHeight * 0.1 / height) * 100 + ((scrollTop) / height) * (100 - (NAVBAR_HEIGHT / clientHeight * 100)) }%`;
         };
         listener();
         window.addEventListener('scroll', listener);
 
         return () => window.removeEventListener('scroll', listener);
-    });
+    }, [isLoaded]);
 
     return (
         <div className={ container }>
@@ -58,7 +60,7 @@ function Home({ isMobileView }: any) {
 
 Home.getInitialProps = (ctx: any) => {
     const isMobileView = !!(ctx.req ? ctx.req.headers['user-agent'] : navigator.userAgent)
-    .match(/Android|BlackBerry|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop|Mac OS X/i);
+    .match(/Android|BlackBerry|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i);
 
     return { isMobileView };
 };
