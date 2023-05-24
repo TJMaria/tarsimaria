@@ -32,16 +32,12 @@ a {
 
 #scroll-progress {
     position: fixed;
-    top: 0;
-    right: 4px;
-
-    // border-radius: 20px;
+    z-index: 98;
     background: var(--color1);
 
+    right: 4px;
+    top: 0;
     transition: top 1s;
-
-
-    z-index: 98;
 }
 
 
