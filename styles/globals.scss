@@ -32,25 +32,12 @@ a {
     top: 0;
     right: 0;
 
-    width: 8px;
-    height: 20vh;
     border-radius: 20px;
     background: var(--color1);
 
     z-index: 10000;
 }
 
-// @media (prefers-color-scheme: dark) {
-//     html {
-//         color-scheme: dark;
-//     }
-
-//     body {
-//         color: var(--color1);
-//         background: var(--whiteish);
-//         overflow: hidden;
-//     }
-// }
 
 h1, h2, h3, h4{
     margin: 0;

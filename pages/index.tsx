@@ -9,17 +9,22 @@ import layoutStyles from '../styles/Layout.module.scss';
 
 const { container } = layoutStyles;
 
-export default function Home() {
+function Home({ isMobileView }: any) {
     const [isLoaded, setIsLoaded] = useState(false);
-
     useEffect(() => {
+        if (isMobileView) {
+            return;
+        }
         const scrollProgress = document.getElementById('scroll-progress') as HTMLElement;
-        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight * 0.8;
+        scrollProgress.style.width = '8px';
+        const { scrollHeight, clientHeight } = document.documentElement;
+        const height = scrollHeight - clientHeight * 0.8;
 
         const listener = () => {
             const scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
-            scrollProgress.style.height = `${ (document.documentElement.clientHeight * 0.2 / height) + (scrollTop / height) * 100 }%`;
+            scrollProgress.style.height = `${ (clientHeight * 0.2 / height) * 100 + (scrollTop / height) * 100 }%`;
         };
+        listener();
         window.addEventListener('scroll', listener);
 
         return () => window.removeEventListener('scroll', listener);
@@ -50,3 +55,12 @@ export default function Home() {
         </div>
     );
 }
+
+Home.getInitialProps = (ctx: any) => {
+    const isMobileView = !!(ctx.req ? ctx.req.headers['user-agent'] : navigator.userAgent)
+    .match(/Android|BlackBerry|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop|Mac OS X/i);
+
+    return { isMobileView };
+};
+
+export default Home;
