@@ -12,25 +12,7 @@ const NAVBAR_HEIGHT = 64;
 
 function Home({ isMobileView }: any) {
     const [isLoaded, setIsLoaded] = useState(false);
-    useEffect(() => {
-        if (isMobileView || !isLoaded) {
-            return;
-        }
-        const scrollProgress = document.getElementById('scroll-progress') as HTMLElement;
-        scrollProgress.style.top = '64px';
-        scrollProgress.style.width = '6px';
-        const { scrollHeight, clientHeight } = document.documentElement;
-        const height = (scrollHeight) - (clientHeight) * 0.9;
-
-        const listener = () => {
-            const scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
-            scrollProgress.style.height = `${ (clientHeight * 0.1 / height) * 100 + ((scrollTop) / height) * (100 - (NAVBAR_HEIGHT / clientHeight * 100)) }%`;
-        };
-        listener();
-        window.addEventListener('scroll', listener);
-
-        return () => window.removeEventListener('scroll', listener);
-    }, [isLoaded]);
+    useEffect(handleInitScrollBar(isMobileView, isLoaded), [isLoaded]);
 
     return (
         <div className={ container }>
@@ -66,3 +48,25 @@ Home.getInitialProps = (ctx: any) => {
 };
 
 export default Home;
+
+function handleInitScrollBar(isMobileView: any, isLoaded: boolean) {
+    return () => {
+        if (isMobileView || !isLoaded) {
+            return;
+        }
+        const scrollProgress = document.getElementById('scroll-progress') as HTMLElement;
+        scrollProgress.style.top = '64px';
+        scrollProgress.style.width = '6px';
+        const { scrollHeight, clientHeight } = document.documentElement;
+        const height = (scrollHeight) - (clientHeight) * 0.9;
+
+        const listener = () => {
+            const scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
+            scrollProgress.style.height = `${(clientHeight * 0.1 / height) * 100 + ((scrollTop) / height) * (100 - (NAVBAR_HEIGHT / clientHeight * 100))}%`;
+        };
+        listener();
+        window.addEventListener('scroll', listener);
+
+        return () => window.removeEventListener('scroll', listener);
+    };
+}

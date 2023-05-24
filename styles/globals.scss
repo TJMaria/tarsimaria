@@ -10,9 +10,9 @@ body {
     scrollbar-width: none; // hide scrollbar Firefox
 }
 
-::-webkit-scrollbar {
+::-webkit-scrollbar{
     display: none;
-    -webkit-appearance: none; // mobile?
+    -webkit-appearance: none; 
     -ms-overflow-style: none;
 }
 
