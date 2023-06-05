@@ -14,9 +14,8 @@ export default function App({ Component, pageProps }: AppProps) {
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'G-5N8PSCCVXZ', {
-              page_path: window.location.pathname,
-            });
+          
+            gtag('config', 'G-5N8PSCCVXZ');
           `,
         }}
       />
