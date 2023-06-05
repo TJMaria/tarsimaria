@@ -31,7 +31,7 @@ function Home({ isMobileView }: any) {
                 {/* Prevent browser from remembering last scroll position */}
                 <script dangerouslySetInnerHTML={{ __html: `history.scrollRestoration = "manual"` }} />
         
-                {/* <!-- Global site tag (gtag.js) - Google Analytics --> */}
+                {/* <!-- Global site tag (gtag.js) - Google Analytics -->
                 <Script
                     src="https://www.googletagmanager.com/gtag/js?id=G-5N8PSCCVXZ"
                     strategy="afterInteractive"
@@ -44,7 +44,7 @@ function Home({ isMobileView }: any) {
 
                     gtag('config', 'G-5N8PSCCVXZ');
                     `}
-                </Script>Í
+                </Script> */}
             </Head>
 
             <div>
